@@ -1,9 +1,10 @@
 import java.util.Random;
 import org.jointheleague.graphical.robot.*;
+
 public class Houses {
 	public static void main(String[] args) {
 		Robot bob = new Robot(); // As in Bob the Builder
-		String[] heights = {"small", "small", "small", "medium", "medium", "medium", "large", "large", "large"};
+		String[] heights = { "small", "small", "small", "medium", "medium", "medium", "large", "large", "large" };
 		bob.miniaturize();
 		bob.moveTo(0, 500);
 		for (int i = 0; i < 9; i++) {
@@ -12,7 +13,7 @@ public class Houses {
 			drawHouse(bob, randR, 0, randB, heights[i]);
 		}
 	}
-	
+
 	public static void drawHouse(Robot bot, int r, int g, int b, String heightStr) {
 		// Setup
 		bot.setSpeed(500);
@@ -37,14 +38,14 @@ public class Houses {
 		bot.setPenColor(r, g, b);
 		bot.turn(-90); // Build left wall
 		bot.move(height);
-		
+
 		if (point) {
 			bot.turn(45); // Build left roof
 			bot.move(25);
-		
+
 			bot.turn(90); // Build right roof
 			bot.move(25);
-		
+
 			bot.turn(45); // Build right wall
 		} else {
 			bot.turn(90);

@@ -22,6 +22,7 @@ public class DuelingButtons implements ActionListener {
 	JButton rightButton = new JButton();
 
 	Dimension BIG = new Dimension(400, 400);
+	Dimension MEDIUM = new Dimension(300, 300);
 	Dimension SMALL = new Dimension(200, 200);
 
 	JFrame frame = new JFrame();
@@ -29,25 +30,27 @@ public class DuelingButtons implements ActionListener {
 
 	private void createUI() {
 		// 1. Add the panel to the frame
-
+		frame.add(panel);
 		// 2. Make the frame visible
-
+		frame.setVisible(true);
 		// 3. Set the text of the leftButton to "Click me!"
-
+		leftButton.setText("Click me!");
+		leftButton.setPreferredSize(MEDIUM);
 		// 4. Set the text of the rightButton to "Click me!"
-
+		rightButton.setText("Click me!");
+		rightButton.setPreferredSize(MEDIUM);
 		// 5. Add an action listener to the leftButton
-
+		leftButton.addActionListener(this);
 		// 6. Add an action listener to the rightButton
-
+		rightButton.addActionListener(this);
 		// 7. Add the leftButton to the panel
-
+		panel.add(leftButton);
 		// 8. Add the rightButton to the panel
-
+		panel.add(rightButton);
 		// 9. Pack the frame
-
+		frame.pack();
 		// 10. Set the title of the frame to "Demanding Buttons"
-
+		frame.setTitle("Demanding Buttons");
 	}
 
 	@Override
@@ -55,8 +58,22 @@ public class DuelingButtons implements ActionListener {
 		JButton buttonPressed = (JButton) arg0.getSource();
 
 		/* If the buttonPressed was the leftButton.... */
+		if (buttonPressed.equals(leftButton)) {
 		// Set the text of the rightButton to "No, click Me!"
+			rightButton.setText("ME, I said!");
 		// Set the PREFERRED size of the rightButton to BIG
+			rightButton.setPreferredSize(BIG);
+			leftButton.setText("This is awesome!");
+		// Set the PREFERRED size of the rightButton to BIG
+			leftButton.setPreferredSize(SMALL);
+		} else if (buttonPressed.equals(rightButton)) {
+			rightButton.setText("Oh yeah, I'm feeling good!");
+			// Set the PREFERRED size of the rightButton to BIG
+			rightButton.setPreferredSize(SMALL);
+			leftButton.setText("WHAT! Dare disobey me?");
+			// Set the PREFERRED size of the rightButton to BIG
+			leftButton.setPreferredSize(BIG);
+		}
 		// Set the text of the leftButton to "Click Me!"
 		// Set the PREFERRED size of the leftButton to SMALL
 

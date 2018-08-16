@@ -4,6 +4,7 @@
  *    Level 1
  */
 
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -22,10 +23,11 @@ public class BodyPartQuiz {
 	// default
 	// package, and change the names below.
 
-	String firstImage = "src/arnold.jpeg";
-	String secondImage = "src/leonardo.jpeg";
-	String thirdImage = "src/morgan.jpeg";
-	String fourthImage = "src/jack.jpeg";
+	String firstImage = "src/obama.png";
+	String secondImage = "src/khan.jpg";
+	String thirdImage = "src/jobs.jpg";
+	String fourthImage = "src/munroe.jpg";
+	String[] answers = {"Barack Obama", "Sal Khan", "Steve Jobs", "Randall Munroe"};
 
 	JFrame window = new JFrame();
 	JPanel panel = new JPanel();
@@ -33,26 +35,30 @@ public class BodyPartQuiz {
 	private void startQuiz() {
 
 		// 1. Make an int variable to hold the score.
-
+		int score = 0;
 		// 2. Set the size of the window in the initializeGui() method below
-
+		initializeGui();
 		for (int i = 0; i < 4; i++) {
 
 			// 4. Ask the user who this person is and store their answer
-			String guess = JOptionPane.showInputDialog("who is this?");
+			String guess = JOptionPane.showInputDialog("O bizzare sentient being, who art this?\n (Only enter first and last name)");
 
 			// 5. Check their answer. If they guessed correctly:
 			// -- Tell them they are right and increase the score by 1
-
-			// 6. Otherwise:
+			if (answers[i].equalsIgnoreCase(guess)) {
+				JOptionPane.showMessageDialog(null, "Correct! *halfhearted applause*");
+				score++;
+			}
+			else {// 6. Otherwise:
 			// -- Tell them they are wrong and who the person is
-
+				JOptionPane.showMessageDialog(null, "Wrong! *booing* The answer is " + answers[i] + ".");
 			// 7. Use the showNextImage() method below to get the next image
+			}
 			showNextImage();
 			// 8. Show them their current score
-
+			JOptionPane.showMessageDialog(null, "Your current score is " + score + " .");
 			// 9. .... repeat for all your images.....
-
+			
 		}
 
 	}
@@ -76,7 +82,7 @@ public class BodyPartQuiz {
 		window.add(panel);
 
 		// 3. Change the size of the window so that you can only see part of the image.
-		window.setSize(500, 500);
+		window.setSize(1200, 1200);
 
 		showNextImage();
 

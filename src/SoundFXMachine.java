@@ -13,14 +13,14 @@ public class SoundFXMachine {
 		JPanel panel = new JPanel();
 		frame.add(panel);
 		
-		JButton b1 = new JButton("Drum");
+		JButton b1 = new JButton("Horn");
 		addSoundListener(frame, panel, b1, "drum.wav");
 		
 		JButton b2 = new JButton("Cymbal");
-		addSoundListener(frame, panel, b2, "cymbal.wav");
+		addSoundListener(frame, panel, b2, "homer-woohoo.wav");
 		
 		JButton b3 = new JButton("Dog");
-		addSoundListener(frame, panel, b3, "labrador-barking-daniel_simon.wav");
+		addSoundListener(frame, panel, b3, "pong copy.wav");
 	}
 	
 	public static void addSoundListener(JFrame frame, JPanel panel, JButton b, String fileName) {
